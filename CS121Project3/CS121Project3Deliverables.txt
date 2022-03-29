@@ -1,0 +1,54 @@
+The number of documents is 37497.
+The number of unique words is 139229.
+The size of the index is 1424975.923kB.
+The query 'informatics' has 1721 results.
+The first 20 are: 
+www.ics.uci.edu/~kay
+fano.ics.uci.edu/cites/Author/Neil-H-McCormick.html
+www.ics.uci.edu/~thornton/inf122/ProjectGuide
+fano.ics.uci.edu/cites/Author/Robert-B-Fisher.html
+fano.ics.uci.edu/cites/Author/Maciej-Kurowski.html
+www.ics.uci.edu/~guix
+fano.ics.uci.edu/cites/Author/Petr-Tobola.html
+www.ics.uci.edu/~djp3/classes/2010_09_INF133/Assignments/Assignment02.html
+www.ics.uci.edu/~djp3/classes/2010_09_INF133/Assignments/Assignment04.html
+www.ics.uci.edu/~djp3/classes/2010_09_INF133/Assignments/Assignment03.html
+fano.ics.uci.edu/cites/Author/ukasz-Kowalik.html
+www.ics.uci.edu/~djp3/classes/2010_09_INF133/Assignments/Assignment05.html
+www.ics.uci.edu/~taylor/classes/117/logform.html
+www.ics.uci.edu/~djp3/classes/2010_09_INF133/materials.html
+www.ics.uci.edu/~jpd/index-old.shtml
+www.ics.uci.edu/~jpd/personal.shtml
+www.ics.uci.edu/~jpd/software.shtml
+fano.ics.uci.edu/cites/Document/Surface-Reconstruction-and-Simplificiation.html
+www.ics.uci.edu/~jpd/research.shtml
+www.ics.uci.edu/~jpd/publications
+The query 'mondego' has 5 results.
+The first 20 are: 
+www.ics.uci.edu/~lopes
+mondego.ics.uci.edu
+www.ics.uci.edu/~lopes/datasets
+www.ics.uci.edu/community/news/notes/notes_2014.php
+www.ics.uci.edu/community/news/notes/notes_2013.php
+The query 'irvine' has 5665 results.
+The first 20 are: 
+www.ics.uci.edu/prospective/ko
+www.ics.uci.edu/prospective/ko/degrees/computer-science
+www.ics.uci.edu/prospective/ko/degrees/computer-game-science
+www.ics.uci.edu/prospective/ko/degrees/informatics
+www.ics.uci.edu/prospective/vi
+www.ics.uci.edu/prospective/zh-tw/admissions/housing
+www.ics.uci.edu/prospective/zh-tw/careers/job-opportunities
+www.ics.uci.edu/prospective
+www.ics.uci.edu/prospective/zh-tw/careers/internships
+www.ics.uci.edu/prospective/zh-tw/degrees/computer-science
+www.ics.uci.edu/prospective/zh-tw/degrees/computer-game-science
+www.ics.uci.edu/prospective/zh-tw/opportunities/applied-learning
+www.ics.uci.edu/prospective/zh-tw/degrees/minors
+www.ics.uci.edu/prospective/zh-tw/degrees/informatics
+fano.ics.uci.edu/cites/Organization/Univ-of-California-Irvine-Dept-of-Civil-and-Environmental-Engineering.html
+www.ics.uci.edu/prospective/zh-tw/degrees/overview
+www.ics.uci.edu/prospective/zh-tw/student-life/bren-ics-organizations
+www.ics.uci.edu/prospective/zh-tw
+www.ics.uci.edu/prospective/zh-tw/careers/breadth
+www.ics.uci.edu/prospective/zh-tw/opportunities/honors
