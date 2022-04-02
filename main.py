@@ -1,18 +1,20 @@
 import re
 import json
 import sys
-from bs4 import BeautifulSoup
 from collections import defaultdict
-from nltk.stem import WordNetLemmatizer
 from math import log
 from operator import itemgetter
 
-#import nltk
-#nltk.download('wordnet')
-#nltk.download('omw-1.4')
+#install these
+from nltk.stem import WordNetLemmatizer
+from bs4 import BeautifulSoup
 
-#constant of the corpus size used to calculate tf idf
-CORPUS_SIZE = 37497
+#constants that should be changed
+#CORPUS_SIZE should match the number of total webpages to accurately calculate the tf-idf
+#THE PATH should be changed to your local path, directing to a json file mapping webpages to a documentID
+#stopWords can be increased or decreased
+CORPUS_SIZE = 37497 #constnt used to calculate tf-idf
+PATH = "C:/Users/doanc/OneDrive/Desktop/ICS121 Resources/WEBPAGES_RAW/bookkeeping.json"
 stopWords = ['a', 'about', 'above', 'after', 'again', 'against', 'all', 'am', 'an', 'and', 'any', 'are', "aren't", 'as',
              'at',
              'be', 'because', 'been', 'before', 'being', 'below', 'between', 'both', 'but', 'by',
@@ -35,11 +37,12 @@ stopWords = ['a', 'about', 'above', 'after', 'again', 'against', 'all', 'am', 'a
              "where's", 'which', 'while',
              'who', "who's", 'whom', 'why', "why's", 'with', "won't", 'would', "wouldn't", 'you', "you'd", "you'll",
              "you're", "you've", 'your', 'yours', 'yourself', 'yourselves']
+##################################
+
 invertedIndex = defaultdict(list)
 uniqueWords = set()
 
 def tokenize(web_page,docID):
-    global docIDLength
     #https://developer.mozilla.org/en-US/docs/Web/HTML/Element
     #https://www.geeksforgeeks.org/python-lemmatization-with-nltk/
     #http://www.tfidf.com/
@@ -52,9 +55,13 @@ def tokenize(web_page,docID):
     tokenList=[]
     soup = BeautifulSoup(web_page, 'lxml')
     lemmatizer = WordNetLemmatizer()
+
+    #find all words and put in words tuple
     for tag in soup.find_all(["p","b","title","h1","h2","h3","header","strong"]):
         words = (lemmatizer.lemmatize(t.lower()) for t in re.split(r'[^a-zA-Z]', tag.get_text()) if
                       t != '' and len(t) >= 3 and t not in stopWords)
+
+        #find words in special anchors to append to a list to later be used for tf-idf scoring
         if tag in soup.find_all("strong"):
             for word in words:
                 strongWords.append(word)
@@ -70,8 +77,11 @@ def tokenize(web_page,docID):
                     headerWords.append([word,header])
         for word in words:
             tokenList.append(word)
+
+    #keep track of unique words
     for word in tokenList:
         uniqueWords.add(word)
+        #add docID to word or created a posting if word does not yet exist in invertedIndex
         for docInfo in invertedIndex[word]:
             if docID in docInfo:
                 #index 0 holds the docID
@@ -99,6 +109,7 @@ def tokenize(web_page,docID):
         else:
             invertedIndex[word].append([docID,1, 1+log(1/len(tokenList)), 0, len(tokenList),set()])
     print(docID)
+
 def calculateTFIDF(invertedIndex):
     #t is the term and docInfo is a list of the postings[docID, wordF, termF, TFIDF=0]
     for t,docInfos in invertedIndex.items():
@@ -109,16 +120,21 @@ def calculateTFIDF(invertedIndex):
 
 if __name__ == "__main__":
     docCounter = 0;
-    with open("C:/Users/doanc/OneDrive/Desktop/ICS121 Resources/WEBPAGES_RAW/bookkeeping.json") as book_keeping:
+
+    with open() as book_keeping:
         book_data = json.load(book_keeping)
     for docID in book_data.keys():
         #docID is a string of a x/y; x being folder number and y being webpage number
-        with open("C:/Users/doanc/OneDrive/Desktop/ICS121 Resources/WEBPAGES_RAW/"+docID, encoding = "utf-8") as web_page:
+        with open(PATH+docID, encoding = "utf-8") as web_page:
             docCounter+=1;
             tokenize(web_page,docID)
     calculateTFIDF(invertedIndex)
+
+    #The below lines of code exist for analytical reasons
+    #will write corpus size, number of unique words, the size of the invertedIndex, and 3 test queries
+    #and its top 20 results
     indexSize = 0
-    file = open("CS121Project3Deliverables.txt",'w')
+    file = open("Deliverables.txt",'w')
     file.write("The number of documents is "+str(CORPUS_SIZE)+".\n")
     file.write("The number of unique words is "+str(len(uniqueWords))+".\n")
     indexSize += sys.getsizeof(invertedIndex)
@@ -161,7 +177,12 @@ if __name__ == "__main__":
     for term,postings in invertedIndex.items():
         for posting in postings:
             posting[5] = list(posting[5])
+
+    #this will create our InvertedIndex
     with open("invertedIndex",'w') as myIndex:
         json.dump(invertedIndex, myIndex)
-    query = input("Enter your query here: ").lower()
-    print(query)
+
+    #the lines below can be used to test queries after the InvertedIndex is made
+    #use searcher.py to use the search engine WITHOUT compiling the invertedIndex each time
+    #query = input("Enter your query here: ").lower()
+    #print(query)
