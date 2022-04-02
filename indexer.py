@@ -37,7 +37,6 @@ stopWords = ['a', 'about', 'above', 'after', 'again', 'against', 'all', 'am', 'a
              "where's", 'which', 'while',
              'who', "who's", 'whom', 'why', "why's", 'with', "won't", 'would', "wouldn't", 'you', "you'd", "you'll",
              "you're", "you've", 'your', 'yours', 'yourself', 'yourselves']
-##################################
 
 invertedIndex = defaultdict(list)
 uniqueWords = set()

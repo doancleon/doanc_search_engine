@@ -84,6 +84,7 @@ def search(prequery):
                     rankings[url] = posting[3]*queryIDF
                 lengthdict[url] = posting[4]
         except:
+
     #shows all words that could not be processed by the search engine
     #search result continues however
             if word not in stopWords:
