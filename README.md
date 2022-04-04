@@ -1,5 +1,16 @@
 # Search Engine
 Contributors: Cleon Doan
+
+## IMPORTANT
+The invertedIndex MUST BE BUILT FIRST in indexer.py.  
+The CORPUS_SIZE must be changed to match the number of webpages to ensure proper scoring in both indexer.py and searcher.py.  
+The PATH string must reference to a file mapping a document ID to the actual webpage in both indexer.py and searcher.py.  
+
+### THE ZIP FILE CORPUS CAN BE DOWNLOADED TO BUILD THE INVERTED INDEX in indexer.py
+
+After the inverted index is built, searcher.py can be ran to open the GUI for the search engine. 
+INDEX_PATH references the name of the inverted index built during indexer.py, this is by default named invertedIndex. 
+
 ## Background
 This project consists of two components: the indexer and searcher.  
 - The indexer creates the invertedIndex.  
@@ -18,15 +29,7 @@ This search engine yields query results under 300 ms.
 - BeautifulSoup
 - nltk, WordNetLemmatizer
 - webbrowser
-- tkinter
-
-## IMPORTANT
-The invertedIndex MUST BE BUILT FIRST in indexer.py.  
-The CORPUS_SIZE must be changed to match the number of webpages to ensure proper scoring in both indexer.py and searcher.py.  
-The PATH string must reference to a json file mapping a document ID to the actual webpage in both indexer.py and searcher.py.    
-
-After the inverted index is built, searcher.py can be ran to open the GUI for the search engine. 
-INDEX_PATH references the name of the inverted index built during indexer.py, this is by default named invertedIndex.  
+- tkinter 
 
 ## Some Weaknesses
 The indexer creates a posting that stores string literals that will describe whether a word found in a webpage was also found in the webpage's anchor text.  
