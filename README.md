@@ -4,7 +4,7 @@ Contributors: Cleon Doan
 ## IMPORTANT
 The invertedIndex MUST BE BUILT FIRST in indexer.py.  
 The CORPUS_SIZE must be changed to match the number of webpages to ensure proper scoring in both indexer.py and searcher.py.  
-The PATH string must reference to a file mapping a document ID to the actual webpage in both indexer.py and searcher.py.  
+The PATH string must reference to a file mapping a document ID to the actual webpage in both indexer.py and searcher.py. (CORPUS.zip for example)  
 
 ### CORPUS.zip CAN BE DOWNLOADED TO BUILD THE INVERTED INDEX in indexer.py
 
