@@ -4,9 +4,7 @@ Contributors: Cleon Doan
 ## IMPORTANT
 The invertedIndex MUST BE BUILT FIRST in indexer.py.  
 The CORPUS_SIZE must be changed to match the number of webpages to ensure proper scoring in both indexer.py and searcher.py.  
-The PATH string must reference to a file mapping a document ID to the actual webpage in both indexer.py and searcher.py. (CORPUS.zip for example)  
-
-### CORPUS.zip CAN BE DOWNLOADED TO BUILD THE INVERTED INDEX in indexer.py
+The PATH string must reference to a file mapping a document ID to the actual webpage in both indexer.py and searcher.py.
 
 After the inverted index is built, searcher.py can be ran to open the GUI for the search engine. 
 INDEX_PATH references the name of the inverted index built during indexer.py, this is by default named invertedIndex. 
